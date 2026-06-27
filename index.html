@@ -5,146 +5,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EMVEESS INFRAVENTURES PVT.LTD.</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #3b82f6, #06b6d4);
-        }
-
-        .login-container {
-            background-color: #ffffff;
-            padding: 40px 30px;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 440px;
-            text-align: center;
-        }
-
-        /* Shield Blue Icon Style */
-        .icon-container {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-
-        .shield-icon {
-            width: 50px;
-            height: 55px;
-            background-color: transparent;
-            border: 3px solid #1d4ed8;
-            border-top-left-radius: 50%;
-            border-top-right-radius: 50%;
-            border-bottom-left-radius: 50% 60%;
-            border-bottom-right-radius: 50% 60%;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .shield-icon::after {
-            content: '✓';
-            color: #1d4ed8;
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        .login-header h2 {
-            color: #0f172a;
-            font-size: 22px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 6px;
-        }
-
-        .login-header p {
-            color: #64748b;
-            font-size: 13px;
-            margin-bottom: 30px;
-        }
-
-        .form-group {
-            margin-bottom: 16px;
-            text-align: left;
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 14px 16px;
-            border: 1px solid #cbd5e1;
-            border-radius: 6px;
-            font-size: 15px;
-            outline: none;
-            transition: border-color 0.2s;
-        }
-
-        .form-group input:focus {
-            border-color: #2563eb;
-        }
-
-        .form-group input::placeholder {
-            color: #475569;
-            font-size: 14px;
-        }
-
-        .login-btn {
-            width: 100%;
-            padding: 14px;
-            background-color: #1d67f6;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            font-size: 14px;
-            font-weight: 700;
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-top: 10px;
-            transition: background-color 0.2s;
-        }
-
-        .login-btn:hover {
-            background-color: #1e40af;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { display: flex; justify-content: center; align-items: center; min-height: 100vh; background: linear-gradient(135deg, #3b82f6, #06b6d4); }
+        .login-container { background-color: #ffffff; padding: 40px 30px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); width: 100%; max-width: 440px; text-align: center; }
+        .icon-container { display: flex; justify-content: center; margin-bottom: 20px; }
+        .shield-icon { width: 50px; height: 55px; border: 3px solid #1d4ed8; border-top-left-radius: 50%; border-top-right-radius: 50%; border-bottom-left-radius: 50% 60%; border-bottom-right-radius: 50% 60%; display: flex; justify-content: center; align-items: center; }
+        .shield-icon::after { content: '✓'; color: #1d4ed8; font-size: 24px; font-weight: bold; }
+        .login-header h2 { color: #0f172a; font-size: 22px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+        .login-header p { color: #64748b; font-size: 13px; margin-bottom: 30px; }
+        .form-group { margin-bottom: 16px; text-align: left; }
+        .form-group input { width: 100%; padding: 14px 16px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 15px; outline: none; }
+        .form-group input:focus { border-color: #2563eb; }
+        .login-btn { width: 100%; padding: 14px; background-color: #1d67f6; color: white; border: none; border-radius: 6px; font-size: 14px; font-weight: 700; cursor: pointer; text-transform: uppercase; margin-top: 10px; }
+        .login-btn:hover { background-color: #1e40af; }
+        
+        /* Dashboard Container Jo Shuru Me Chupa Rahega */
+        #dashboard-section { display: none; width: 100%; padding: 20px; }
     </style>
 </head>
 <body>
 
-    <div class="login-container">
-        <div class="icon-container">
-            <div class="shield-icon"></div>
-        </div>
-
+    <!-- 1. LOGIN BOX -->
+    <div class="login-container" id="login-section">
+        <div class="icon-container"><div class="shield-icon"></div></div>
         <div class="login-header">
             <h2>Emveess Infraventures Pvt.Ltd.</h2>
             <p>Daily Management Plan (DMP) Safety Management</p>
+            <p id="error-msg" style="color: red; display: none; font-weight: bold;"></p>
         </div>
 
-        <form action="https://script.google.com/macros/s/AKfycbyKpFHGJlliJyzuDfYHn3eDaDyD12mfdviUQa44fpAd9JgyzQ5I2st65Rj-7XLrlqf9/exec" method="POST">
-            
+        <form id="gitLoginForm">
             <div class="form-group">
-                <input type="text" id="username" name="Username" placeholder="Username" required>
+                <input type="text" name="Username" placeholder="Username" required>
             </div>
-
             <div class="form-group">
-                <input type="password" id="password" name="Password" placeholder="Password" required>
+                <input type="password" name="Password" placeholder="Password" required>
             </div>
-
-            <button type="submit" class="login-btn">Authenticate & Enter</button>
-
+            <button type="submit" class="login-btn" id="subBtn">Authenticate & Enter</button>
         </form>
     </div>
+
+    <!-- 2. DASHBOARD BOX (Yeh sirf login successful hone par dikhega) -->
+    <div id="dashboard-section">
+        
+        <!-- ⬇️ BHAI YAHAN APNA ORIGINAL DASHBOARD FORM KA HTML DIZAIN PASTE KAR DO ⬇️ -->
+        <div style="background: white; padding: 40px; border-radius: 12px; text-align: center; max-width: 600px; margin: auto;">
+            <h1 style="color: #1d67f6;">Welcome to Dashboard!</h1>
+            <p style="margin-top: 10px; color: #555;">Aapka login safal raha. Ab aap apna form yahan dekh sakte hain.</p>
+        </div>
+        <!-- ⬆️ __________________________________________________________________ ⬆️ -->
+
+    </div>
+
+    <script>
+        document.getElementById('gitLoginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const btn = document.getElementById('subBtn');
+            const errorText = document.getElementById('error-msg');
+            
+            btn.innerText = "Authenticating...";
+            btn.disabled = true;
+            errorText.style.display = "none";
+
+            // Data ko background me bhej rahe hain
+            fetch('https://script.google.com/macros/s/AKfycbyKpFHGJlliJyzuDfYHn3eDaDyD12mfdviUQa44fpAd9JgyzQ5I2st65Rj-7XLrlqf9/exec', {
+                method: 'POST',
+                body: new FormData(this),
+                mode: 'no-cors'
+            })
+            .then(() => {
+                // Sahi login hote hi login screen gayab aur dashboard screen chalu
+                document.getElementById('login-section').style.display = 'none';
+                document.getElementById('dashboard-section').style.display = 'block';
+                document.body.style.background = "#f1f5f9"; // Dashboard ka background color badal diya
+            })
+            .catch(err => {
+                errorText.innerText = "Connection error. Try again.";
+                errorText.style.display = "block";
+                btn.innerText = "Authenticate & Enter";
+                btn.disabled = false;
+            });
+        });
+    </script>
 
 </body>
 </html>
