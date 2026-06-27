@@ -3,146 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EMVEESS INFRAVENTURES PVT.LTD.</title>
+    <title>Emveess Infaventures Pvt. Ltd. - Safety Portal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
         body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* Blue overlay removed - showing original background image */
+            background: url('https://lh3.googleusercontent.com/d/1Bf2R7P-6l0u9e5a1pZ_Ue2G0y0sQ3H8P'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             min-height: 100vh;
-            background: linear-gradient(135deg, #3b82f6, #06b6d4);
-        }
-
-        .login-container {
-            background-color: #ffffff;
-            padding: 40px 30px;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 440px;
-            text-align: center;
-        }
-
-        .icon-container {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-
-        .shield-icon {
-            width: 50px;
-            height: 55px;
-            background-color: transparent;
-            border: 3px solid #1d4ed8;
-            border-top-left-radius: 50%;
-            border-top-right-radius: 50%;
-            border-bottom-left-radius: 50% 60%;
-            border-bottom-right-radius: 50% 60%;
-            position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
+            padding: 20px;
         }
 
-        .shield-icon::after {
-            content: '✓';
-            color: #1d4ed8;
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        .login-header h2 {
-            color: #0f172a;
-            font-size: 22px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 6px;
-        }
-
-        .login-header p {
-            color: #64748b;
-            font-size: 13px;
-            margin-bottom: 30px;
-        }
-
-        .form-group {
-            margin-bottom: 16px;
-            text-align: left;
-        }
-
-        .form-group input {
+        .card {
+            background: #ffffff; /* Solid white background for perfect readability */
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
             width: 100%;
-            padding: 14px 16px;
-            border: 1px solid #cbd5e1;
-            border-radius: 6px;
-            font-size: 15px;
-            outline: none;
-            transition: border-color 0.2s;
+            max-width: 450px;
+            text-align: center;
+            padding: 35px 30px;
+            border-top: 6px solid #0056b3;
         }
 
-        .form-group input:focus {
-            border-color: #2563eb;
+        .logo-container {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 15px auto;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid #0056b3;
         }
+        .logo-container img { width: 100%; height: 100%; object-fit: cover; }
 
-        .form-group input::placeholder {
-            color: #475569;
-            font-size: 14px;
-        }
+        .company-name { font-size: 1.4rem; color: #111; font-weight: 700; margin-bottom: 5px; }
+        .subtitle { font-size: 0.9rem; color: #555; margin-bottom: 25px; }
 
-        .login-btn {
-            width: 100%;
-            padding: 14px;
-            background-color: #1d67f6;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            font-size: 14px;
-            font-weight: 700;
-            cursor: pointer;
+        .btn-portal {
+            display: block;
+            background: #0056b3;
+            color: #ffffff;
+            padding: 16px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: 0.3s;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-top: 10px;
-            transition: background-color 0.2s;
         }
+        .btn-portal:hover { background: #003d7a; transform: translateY(-2px); }
 
-        .login-btn:hover {
-            background-color: #1e40af;
-        }
+        .footer { margin-top: 30px; font-size: 0.8rem; color: #444; border-top: 1px solid #ddd; padding-top: 15px; }
+        .light-text { color: #888; font-size: 0.75rem; margin-top: 10px; }
     </style>
 </head>
 <body>
 
-    <div class="login-container">
-        <div class="icon-container">
-            <div class="shield-icon"></div>
+    <div class="card">
+        <div class="logo-container">
+            <img src="https://lh3.googleusercontent.com/d/1xymrOtXSB_ziOoMZolLJBj9pXKoyTC4I" alt="Logo">
         </div>
-
-        <div class="login-header">
-            <h2>Emveess Infraventures Pvt.Ltd.</h2>
-            <p>Daily Management Plan (DMP) Safety Management</p>
+        
+        <div class="company-name">Emveess Infaventures Pvt. Ltd.</div>
+        <div class="subtitle">Daily Management Plan of Safety</div>
+        
+        <a href="https://script.google.com/macros/s/AKfycbyKpFHGJlliJyzuDfYHn3eDaDyD12mfdviUQa44fpAd9JgyzQ5I2st65Rj-7XLrlqf9/exec" class="btn-portal">
+            <i class="fa-solid fa-right-to-bracket"></i> CLICK HERE FOR LOGIN
+        </a>
+        
+        <div class="footer">
+            <strong>EMVEESS SAFETY MNGT SYSTEM</strong><br>
+            TSL SITE, WEST BOKARO DIVISION
+            <div class="light-text">
+                Created by: Musahid | &copy; 2026
+            </div>
         </div>
-
-        <form action="https://script.google.com/macros/s/AKfycbyKpFHGJlliJyzuDfYHn3eDaDyD12mfdviUQa44fpAd9JgyzQ5I2st65Rj-7XLrlqf9/exec" method="POST">
-            
-            <div class="form-group">
-                <input type="text" name="Username" placeholder="Username" required>
-            </div>
-
-            <div class="form-group">
-                <input type="password" name="Password" placeholder="Password" required>
-            </div>
-
-            <button type="submit" class="login-btn">Authenticate & Enter</button>
-
-        </form>
     </div>
 
 </body>
