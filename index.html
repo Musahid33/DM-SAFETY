@@ -10,11 +10,12 @@
         
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            /* Blue overlay removed - showing original background image */
-            background: url('https://lh3.googleusercontent.com/d/1Bf2R7P-6l0u9e5a1pZ_Ue2G0y0sQ3H8P'); 
+            /* आपकी नई बैकग्राउंड इमेज यहाँ पूरे वाइट सेक्शन में लोड होगी */
+            background: url('https://lh3.googleusercontent.com/d/1Lre9EtYPiL4VvCmKJi1AYSKSOnPvPgQh'); 
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
+            background-repeat: no-repeat;
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -23,9 +24,11 @@
         }
 
         .card {
-            background: #ffffff; /* Solid white background for perfect readability */
+            background: rgba(255, 255, 255, 0.92); /* हल्का ट्रांसपेरेंट कार्ड ताकि पीछे की इमेज का लुक बना रहे */
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             border-radius: 16px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
             width: 100%;
             max-width: 450px;
             text-align: center;
@@ -40,11 +43,12 @@
             border-radius: 50%;
             overflow: hidden;
             border: 3px solid #0056b3;
+            background: #ffffff;
         }
         .logo-container img { width: 100%; height: 100%; object-fit: cover; }
 
         .company-name { font-size: 1.4rem; color: #111; font-weight: 700; margin-bottom: 5px; }
-        .subtitle { font-size: 0.9rem; color: #555; margin-bottom: 25px; }
+        .subtitle { font-size: 0.9rem; color: #444; font-weight: 600; margin-bottom: 25px; }
 
         .btn-portal {
             display: block;
@@ -60,8 +64,8 @@
         }
         .btn-portal:hover { background: #003d7a; transform: translateY(-2px); }
 
-        .footer { margin-top: 30px; font-size: 0.8rem; color: #444; border-top: 1px solid #ddd; padding-top: 15px; }
-        .light-text { color: #888; font-size: 0.75rem; margin-top: 10px; }
+        .footer { margin-top: 30px; font-size: 0.8rem; color: #333; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 15px; }
+        .light-text { color: #777; font-size: 0.75rem; margin-top: 10px; font-weight: 500; }
     </style>
 </head>
 <body>
